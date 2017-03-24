@@ -1,0 +1,21 @@
+Attributs :
+	b[][] c'est le board
+	Un Couple est composé de deux puyos : p[0] et p[1]
+	Si un puyo est falling, il est en train de tomber. L'état falling est set a false si son mouvement est bloqué (par un autre puyo par exemple).
+	
+	
+Fonctions :
+	GetRelationBetweenPieces(p1,p2) renvoie la position de p2 par rapport à p1 (LEFT, RIGHT, ...)
+	MoveActiveCouple est la fonction qui permet de déplacer le couple joué dans la grille (en vérifiant que chaque action est bien possible à chaque fois).
+	
+Gameplay :
+	Chaque joueur joue avec 4 touches, par exemple ZQSD : QSD pour diriger, Z pour tourner
+	Rotation dans le sens horaire ("Right becomes up becomes left becomes down becomes right")
+	A voir si c'est intéressant de rajouter l'autre sens de rotation (un peu de code pas compliqué du tout)
+	
+	
+	
+A faire : 
+
+Installer SDL en lisant les readme pour pouvoir compiler avec gcc.
+glhf les nous du futur.
