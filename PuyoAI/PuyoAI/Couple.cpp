@@ -9,13 +9,23 @@ Couple::Couple() {
 	y_pos = 0;
 }
 
-// Tourne puyos[0] autour de puyos[1]
-void rotate_left() {
-	
+// Attribue au couple l'orientation donnée en paramètre
+void Couple::rotate_couple(int o) {
+	orientation = o;
 }
 
-// Tourne puyos[1] autour de puyos[0]
-void rotate_right() {
-
+// Retourne l'orientation du couple
+int Couple::get_orientation() {
+	return orientation;
 }
 
+int Couple::get_xpos() {
+	return x_pos;
+}
+int Couple::get_ypos() {
+	return y_pos;
+}
+
+void Couple::move_down() {
+	y_pos--;
+}

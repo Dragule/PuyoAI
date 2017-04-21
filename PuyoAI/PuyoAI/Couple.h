@@ -14,14 +14,14 @@ class Couple
 	int x_pos;
 public:
 	Couple();
-	void rotate_left();
-	void rotate_right();
+	void rotate_couple(int o);
 
 	Puyo* get_puyos();
-	Orientation get_orientation();
+	int get_orientation();
 	int get_xpos();
 	int get_ypos();
 
 	void set_xpos();
 	void set_ypos();
+	void move_down();
 };
