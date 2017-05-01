@@ -19,13 +19,16 @@ int Couple::get_orientation() {
 	return orientation;
 }
 
+// Retourne la coordonnée x du couple
 int Couple::get_xpos() {
 	return x_pos;
 }
+// Retourne la coordonnée y du couple
 int Couple::get_ypos() {
 	return y_pos;
 }
 
+// Descend le couple d'une case
 void Couple::move_down() {
 	y_pos--;
 }
