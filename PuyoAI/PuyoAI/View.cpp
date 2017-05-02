@@ -41,7 +41,7 @@ static char puyo_to_char(Puyo puyo) {
 	return ' ';
 }
 
-static Color puyo_to_color(Puyo puyo) {
+static Color puyo_to_color(int puyo) {
 	switch (puyo) {
 		case BLUE: return Color::Blue;
 		case GREEN: return Color::Green;
@@ -51,8 +51,8 @@ static Color puyo_to_color(Puyo puyo) {
 	}
 	return Graphical_View::BACKGROUND;
 }
-/*
-void graphical_view::draw(const tetris& t)
+
+void Graphical_View::draw(const Game& g)
 {
 	Event event;
 	window.pollEvent(event);
@@ -62,26 +62,29 @@ void graphical_view::draw(const tetris& t)
 	const int DELTA_X = 75;
 	const int DELTA_Y = 50;
 	RectangleShape square(Vector2f(w, w));
-	for (int y = 0; y < BOARD_HEIGHT; ++y)
+	for (int x = 0; x < BOARD_HEIGHT; ++x)
 	{
-		for (int x = 0; x < BOARD_WIDTH; ++x)
+		for (int y = 0; y < BOARD_WIDTH; ++y)
 		{
 			square.setPosition(DELTA_X + x * w, DELTA_Y + y * w);
-			square.setFillColor(kind_to_color(t.get(y, x)));
+			square.setFillColor(puyo_to_color(g.get(x, y)));
 			window.draw(square);
 		}
 	}
-	RectangleShape next_piece_rectangle(Vector2f(w * 4, w * 4));
-	next_piece_rectangle.setPosition(DELTA_X + w * BOARD_WIDTH + 10, DELTA_Y);
-	next_piece_rectangle.setFillColor(BACKGROUND);
-	window.draw(next_piece_rectangle);
-	const piece& next_piece = t.get_next_piece();
-	Color c = kind_to_color(next_piece.get_kind());
+	RectangleShape next_couple_rectangle(Vector2f(w * 4, w * 4));
+	next_couple_rectangle.setPosition(DELTA_X + w * BOARD_WIDTH + 10, DELTA_Y);
+	next_couple_rectangle.setFillColor(BACKGROUND);
+	window.draw(next_couple_rectangle);
+	const Couple& next_couple = g.get_next_couple();
+
+	// Finir d'adapter cette fonction au puyo
+
+	Color c = puyo_to_color(next_couple);
 	for (int y = 0; y < 4; ++y)
 	{
 		for (int x = 0; x < 4; ++x)
 		{
-			int v = next_piece.get_shape_value(y, x);
+			int v = next_couple.get_shape_value(y, x);
 			if (v == 0) continue;
 			square.setPosition(DELTA_X + w * BOARD_WIDTH + 10 + x * w, DELTA_Y + y * w);
 			square.setFillColor(c);
@@ -125,7 +128,7 @@ void graphical_view::draw(const tetris& t)
 
 	window.display();
 }
-*/
+
 const Color Graphical_View::BACKGROUND = Color::Black;
 
 Graphical_View::Graphical_View() : window(VideoMode(600, 800), "Gropuyo")

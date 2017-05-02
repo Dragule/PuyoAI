@@ -1,7 +1,7 @@
 #include "Game.h"
 
 // Constructeur de game
-Game::Game() : current_couple() {
+Game::Game() : current_couple(), next_couple() {
 	for (int i = 0; i < BOARD_WIDTH; ++i) {
 		for (int j = 0; j < BOARD_HEIGHT; ++j) {
 			board[i][j] = FREE;
@@ -125,6 +125,7 @@ void Game::drop_puyo(int p, int x, int y) {
 // Détruit tous les blocs de puyos
 void Game::destroy_all() {
 	vector<pair<int, int>> involved;
+	int power_rangers[4] = { 0, 0, 0, 0 };
 	bool b = false;
 	for (int i = 0; i < BOARD_WIDTH; ++i) {
 		for (int j = 0; j < BOARD_HEIGHT; ++j) {
@@ -132,9 +133,8 @@ void Game::destroy_all() {
 			if (board[i][j] != FREE && !contains(involved, p)) {
 				check(i, j, board[i][j]);
 				if (destroy.size > 3) {
-					// Bonus de couleur à gérer
-					score += (destroy.size * 10)*(SCORE_HITPOWER[hits] + SCORE_BONUS_COLORS[1] + SCORE_BONUS_GROUPS[destroy.size]);
 					while(!destroy.empty) {
+						power_rangers[board[i][j]] += destroy.size;
 						involved.push_back(destroy.back);
 						destroy.pop_back;
 						b = true;
@@ -150,7 +150,12 @@ void Game::destroy_all() {
 		}
 	}
 	if (b) {
-
+		int col_bon = 0;
+		for (int i = 0; i < 4; i++) {
+			if (power_rangers[i] > 0) col_bon++;
+		}
+		// Formule de la puissance : https://www.bayoen.fr/wiki/Tableau_des_dommages
+		score += ((power_rangers[0]+power_rangers[1]+power_rangers[2]+power_rangers[3])* 10)*(SCORE_HITPOWER[hits] + SCORE_BONUS_COLORS[col_bon] + SCORE_BONUS_GROUPS[power_rangers[0]] + SCORE_BONUS_GROUPS[power_rangers[1]] + SCORE_BONUS_GROUPS[power_rangers[2]] + SCORE_BONUS_GROUPS[power_rangers[3]]);
 		hits++;
 		destroy_all();
 	}
@@ -182,4 +187,20 @@ void Game::check(int x, int y, int p) {
 		// Right
 		if (x < BOARD_WIDTH - 1) check(x + 1, y, p);
 	}
+}
+
+// GAME OVER ?
+bool Game::is_game_over() {
+	if (board[0][2] != FREE) return true;
+	return false;
+}
+
+// Retourne la valeur de la case (x;y) du board
+int Game::get(int x, int y) const {
+	return board[x][y];
+}
+
+// Retourne le next_couple
+Couple Game::get_next_couple() const {
+	return next_couple;
 }

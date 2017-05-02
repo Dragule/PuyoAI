@@ -17,5 +17,5 @@ struct Graphical_View
 	sf::Font font;
 	static const sf::Color BACKGROUND;
 	Graphical_View();
-	void draw(const Game& t);
+	void draw(const Game& g);
 };

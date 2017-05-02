@@ -42,6 +42,7 @@ class Game
 {
 	array<array<int8_t, BOARD_WIDTH>, BOARD_HEIGHT> board;
 	Couple current_couple;
+	Couple next_couple;
 	vector<pair<int, int>> destroy;
 	int hits;
 	int score;
@@ -55,4 +56,7 @@ public :
 	void destroy_all();
 	bool contains(vector<pair<int, int>> v, pair<int, int> e);
 	void check(int x, int y, int p);
+	bool is_game_over();
+	int get(int x, int y) const;
+	Couple get_next_couple() const;
 };
