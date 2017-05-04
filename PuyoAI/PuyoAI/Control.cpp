@@ -73,7 +73,7 @@ double heuristic_control::evaluate_position(Game& g, int score_dif)
 	int colors[4] = { 0, 0, 0, 0 };
 	int max_h = 0;
 	int min_h = 12;
-	int nb_tri;
+	int nb_tri = 0;
 
 	int res = 0.0;
 	for (int i = 0; i < BOARD_WIDTH; i++) {
@@ -82,11 +82,12 @@ double heuristic_control::evaluate_position(Game& g, int score_dif)
 				heights[i] = BOARD_HEIGHT - j;
 				max_h = max(max_h, heights[i]);
 				min_h = min(min_h, heights[i]);
-
+			}
+			else {
+				colors[g.get(i, j)] = 1; 
 				g.check(i, j, g.get(i, j));
 				if (g.get_des_size() == 3) nb_tri++;
 			}
-			colors[g.get(i, j)] = 1;
 		}
 	}
 

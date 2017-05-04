@@ -47,7 +47,9 @@ void learn()
 
 int main(int argc, char *argv[])
 {
+
 	learn();
 	//play({ ... });
 	return 0;
+	
 }

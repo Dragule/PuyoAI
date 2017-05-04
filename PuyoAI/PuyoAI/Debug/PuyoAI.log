@@ -1,8 +1,3 @@
-﻿  Main.cpp
-View.obj : error LNK2019: symbole externe non résolu "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z) référencé dans la fonction "public: __thiscall Graphical_View::Graphical_View(void)" (??0Graphical_View@@QAE@XZ)
-View.obj : error LNK2019: symbole externe non résolu "__declspec(dllimport) public: __thiscall sf::String::String(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::locale const &)" (__imp_??0String@sf@@QAE@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@ABVlocale@3@@Z) référencé dans la fonction "public: void __thiscall Graphical_View::draw(class Game const &)" (?draw@Graphical_View@@QAEXABVGame@@@Z)
-View.obj : error LNK2019: symbole externe non résolu "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ) référencé dans la fonction "public: __thiscall Graphical_View::Graphical_View(void)" (??0Graphical_View@@QAE@XZ)
-View.obj : error LNK2019: symbole externe non résolu "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z) référencé dans la fonction "public: __thiscall Graphical_View::Graphical_View(void)" (??0Graphical_View@@QAE@XZ)
-View.obj : error LNK2019: symbole externe non résolu "__declspec(dllimport) public: bool __thiscall sf::Window::pollEvent(class sf::Event &)" (__imp_?pollEvent@Window@sf@@QAE_NAAVEvent@2@@Z) référencé dans la fonction "public: void __thiscall Graphical_View::draw(class Game const &)" (?draw@Graphical_View@@QAEXABVGame@@@Z)
-View.obj : error LNK2019: symbole externe non résolu "__declspec(dllimport) public: void __thiscall sf::Window::display(void)" (__imp_?display@Window@sf@@QAEXXZ) référencé dans la fonction "public: void __thiscall Graphical_View::draw(class Game const &)" (?draw@Graphical_View@@QAEXABVGame@@@Z)
-D:\Workspace\Visual Studio\BEST6PUYO6EVER\PuyoAI\Debug\PuyoAI.exe : fatal error LNK1120: 6 externes non résolus
+﻿  Game.cpp
+  PuyoAI.vcxproj -> D:\Workspace\Visual Studio\BEST6PUYO6EVER\PuyoAI\Debug\PuyoAI.exe
+  PuyoAI.vcxproj -> D:\Workspace\Visual Studio\BEST6PUYO6EVER\PuyoAI\Debug\PuyoAI.pdb (Partial PDB)

@@ -44,7 +44,7 @@ BOARD_HEIGHT - 1 |   |   |   |   |    ...    |   |
 
 class Game
 {
-	std::array<std::array<int8_t, BOARD_WIDTH>, BOARD_HEIGHT> board;
+	std::array<std::array<int8_t, BOARD_HEIGHT>, BOARD_WIDTH> board;
 	Couple current_couple;
 	Couple next_couple;
 	vector<pair<int, int>> destroy;

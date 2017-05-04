@@ -9,6 +9,7 @@ Game::Game() {
 	}
 	hits = 0;
 	score = 0;
+
 	hits_max = 0;
 	hit_start = 0;
 	hits_total = 0;
@@ -222,7 +223,7 @@ void Game::move_down() {
 	case UP:
 		if (!is_free(current_couple.get_xpos(), current_couple.get_ypos() + 1)) current_couple.fall();
 		else {
-			board[current_couple.get_xpos()][current_couple.get_ypos() + 1] = FREE;
+			board[current_couple.get_xpos()][current_couple.get_ypos() - 1] = FREE;
 			current_couple.move_down();
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = current_couple.get_puyos()[0];
 			board[current_couple.get_xpos()][current_couple.get_ypos() - 1] = current_couple.get_puyos()[1];
@@ -325,7 +326,7 @@ void Game::move_right() {
 		else {
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = FREE;
 			board[current_couple.get_xpos()][current_couple.get_ypos() - 1] = FREE;
-			current_couple.move_left();
+			current_couple.move_right();
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = current_couple.get_puyos()[0];
 			board[current_couple.get_xpos()][current_couple.get_ypos() - 1] = current_couple.get_puyos()[1];
 		}
@@ -335,7 +336,7 @@ void Game::move_right() {
 		else {
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = FREE;
 			board[current_couple.get_xpos()][current_couple.get_ypos() + 1] = FREE;
-			current_couple.move_left();
+			current_couple.move_right();
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = current_couple.get_puyos()[0];
 			board[current_couple.get_xpos()][current_couple.get_ypos() + 1] = current_couple.get_puyos()[1];
 		}
@@ -344,7 +345,7 @@ void Game::move_right() {
 		if (!is_free(current_couple.get_xpos() + 1, current_couple.get_ypos())) current_couple.fall();
 		else {
 			board[current_couple.get_xpos() - 1][current_couple.get_ypos()] = FREE;
-			current_couple.move_left();
+			current_couple.move_right();
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = current_couple.get_puyos()[0];
 			board[current_couple.get_xpos() - 1][current_couple.get_ypos()] = current_couple.get_puyos()[1];
 		}
@@ -353,7 +354,7 @@ void Game::move_right() {
 		if (!is_free(current_couple.get_xpos() + 2, current_couple.get_ypos())) current_couple.fall();
 		else {
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = FREE;
-			current_couple.move_left();
+			current_couple.move_right();
 			board[current_couple.get_xpos()][current_couple.get_ypos()] = current_couple.get_puyos()[0];
 			board[current_couple.get_xpos() + 1][current_couple.get_ypos()] = current_couple.get_puyos()[1];
 		}

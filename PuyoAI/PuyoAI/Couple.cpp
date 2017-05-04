@@ -3,6 +3,8 @@
 
 // Chaque couple est initialisé avec deux puyos aléatoires, verticalement, dans la colonne 2
 Couple::Couple() {
+	srand(time(NULL));
+
 	puyos[0] = (Puyo)(rand() % 4);
 	puyos[1] = (Puyo)(rand() % 4);
 	orientation = DOWN;
