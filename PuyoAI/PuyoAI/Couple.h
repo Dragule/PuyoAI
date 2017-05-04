@@ -12,6 +12,7 @@ class Couple
 	int orientation;
 	int y_pos;
 	int x_pos;
+	bool fallen;
 public:
 	Couple();
 	void rotate_couple(int o);
@@ -20,8 +21,11 @@ public:
 	int get_orientation();
 	int get_xpos();
 	int get_ypos();
+	int get_shape_value(int x, int y);
+	bool is_fallen();
+	void fall();
 
-	void set_xpos();
-	void set_ypos();
 	void move_down();
+	void move_left();
+	void move_right();
 };

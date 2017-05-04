@@ -3,6 +3,17 @@
 using namespace std;
 using namespace sf;
 
+static char puyo_to_char(int puyo) {
+	switch (puyo) {
+	case BLUE: return 'B'; break;
+	case GREEN: return 'G'; break;
+	case YELLOW: return 'Y'; break;
+	case RED: return 'R'; break;
+	case OJAMA: return 'O'; break;
+	}
+	return ' ';
+}
+
 ostream& operator<<(ostream& os, const Game& g)
 {
 	for (int i = 0; i <= BOARD_HEIGHT; ++i)
@@ -29,25 +40,13 @@ void ASCII_View::draw(const Game& g)
 	cout << g;
 }
 
-
-static char puyo_to_char(Puyo puyo) {
-	switch (puyo) {
-		case BLUE: return 'B';
-		case GREEN: return 'G';
-		case YELLOW: return 'Y';
-		case RED: return 'R';
-		case OJAMA: return 'O';
-	}
-	return ' ';
-}
-
 static Color puyo_to_color(int puyo) {
 	switch (puyo) {
-		case BLUE: return Color::Blue;
-		case GREEN: return Color::Green;
-		case YELLOW: return Color::Yellow;
-		case RED: return Color::Red;
-		case OJAMA: return Color::White;
+	case BLUE: return Color::Blue; break;
+	case GREEN: return Color::Green; break;
+	case YELLOW: return Color::Yellow; break;
+	case RED: return Color::Red; break;
+	case OJAMA: return Color::White; break;
 	}
 	return Graphical_View::BACKGROUND;
 }
@@ -75,20 +74,25 @@ void Graphical_View::draw(const Game& g)
 	next_couple_rectangle.setPosition(DELTA_X + w * BOARD_WIDTH + 10, DELTA_Y);
 	next_couple_rectangle.setFillColor(BACKGROUND);
 	window.draw(next_couple_rectangle);
-	const Couple& next_couple = g.get_next_couple();
-
-	// Finir d'adapter cette fonction au puyo
-
-	Color c = puyo_to_color(next_couple);
+	Couple& next_couple = g.get_next_couple();
+	Color c0 = puyo_to_color(next_couple.get_puyos()[0]);
+	Color c1 = puyo_to_color(next_couple.get_puyos()[1]);
 	for (int y = 0; y < 4; ++y)
 	{
 		for (int x = 0; x < 4; ++x)
 		{
 			int v = next_couple.get_shape_value(y, x);
 			if (v == 0) continue;
-			square.setPosition(DELTA_X + w * BOARD_WIDTH + 10 + x * w, DELTA_Y + y * w);
-			square.setFillColor(c);
-			window.draw(square);
+			if (v == 1) {
+				square.setPosition(DELTA_X + w * BOARD_WIDTH + 10 + x * w, DELTA_Y + y * w);
+				square.setFillColor(c1);
+				window.draw(square);
+			}
+			if (v == 2) {
+				square.setPosition(DELTA_X + w * BOARD_WIDTH + 10 + x * w, DELTA_Y + y * w);
+				square.setFillColor(c0);
+				window.draw(square);
+			}
 		}
 	}
 	Text txt;
@@ -102,28 +106,23 @@ void Graphical_View::draw(const Game& g)
 	window.draw(txt);
 
 	txt.setPosition(DELTA_X + w * BOARD_WIDTH + 20, DELTA_Y + 7.5 * w);
-	txt.setString(to_string(t.get_score()));
+	txt.setString(to_string(g.get_score()));
 	txt.setCharacterSize(24);
 	window.draw(txt);
 
 	txt.setPosition(DELTA_X + w * BOARD_WIDTH + 20, DELTA_Y + 10 * w);
-	txt.setString("Level");
+	txt.setString("Hits");
 	txt.setCharacterSize(32);
 	window.draw(txt);
 
 	txt.setPosition(DELTA_X + w * BOARD_WIDTH + 20, DELTA_Y + 11.5 * w);
-	txt.setString(to_string(t.get_level()));
+	txt.setString(to_string(g.get_hits()));
 	txt.setCharacterSize(24);
 	window.draw(txt);
 
 	txt.setPosition(DELTA_X + w * BOARD_WIDTH + 20, DELTA_Y + 14 * w);
-	txt.setString("Lines");
+	txt.setString("=^._.^=");
 	txt.setCharacterSize(32);
-	window.draw(txt);
-
-	txt.setPosition(DELTA_X + w * BOARD_WIDTH + 20, DELTA_Y + 15.5 * w);
-	txt.setString(to_string(t.get_lines()));
-	txt.setCharacterSize(24);
 	window.draw(txt);
 
 	window.display();

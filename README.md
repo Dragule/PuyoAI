@@ -9,8 +9,9 @@ Fait :
 - Destruction des groupes de puyos
 - Comptage des points (https://www.bayoen.fr/wiki/Tableau_des_dommages)
 - Gestion de la fin de la partie
+- Interactions avec la vue
+- Interactions avec l'IA
 
 
 À faire :
-- Interactions avec l'IA (commencé dans View.cpp)
-- Interactions avec la vue
+- FUCKING BUGS

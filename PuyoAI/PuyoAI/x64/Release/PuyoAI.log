@@ -1,0 +1,21 @@
+﻿  cem.cpp
+cem.cpp(16): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+cem.cpp(21): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+cem.cpp(21): warning C4267: 'initialisation' : conversion de 'size_t' en 'const int', perte possible de données
+cem.cpp(35): warning C4244: 'argument' : conversion de 'std::chrono::system_clock::rep' en 'unsigned int', perte possible de données
+cem.cpp(66): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+cem.cpp(102): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+  Control.cpp
+  Couple.cpp
+  Game.cpp
+Game.cpp(118): warning C4267: '+=' : conversion de 'size_t' en 'int', perte possible de données
+  Main.cpp
+  View.cpp
+View.cpp(63): warning C4244: 'argument' : conversion de 'const int' en 'float', perte possible de données
+View.cpp(68): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+View.cpp(74): warning C4244: 'argument' : conversion de 'const int' en 'float', perte possible de données
+View.cpp(87): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+View.cpp(92): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+View.cpp(100): warning C4996: 'sf::Text::setColor': a été déclaré déconseillé
+  D:\Workspace\Librairies\C++\SFML-2.4.2\include\SFML/Graphics/Text.hpp(177): note: voir la déclaration de 'sf::Text::setColor'
+sfml-graphics.lib(sfml-graphics-2.dll) : fatal error LNK1112: type d'ordinateur module 'X86' en conflit avec le type d'ordinateur cible 'x64'
