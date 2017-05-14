@@ -1,7 +1,7 @@
 #include "Game.h"
 
 // Constructeur de game
-Game::Game() {
+Game::Game() { // A la création du game, le next_couple est toujours le même que le current_couple, sûrement à cause de l'imprécision du random, à corriger
 	for (int i = 0; i < BOARD_WIDTH; ++i) {
 		for (int j = 0; j < BOARD_HEIGHT; ++j) {
 			board[i][j] = FREE;
