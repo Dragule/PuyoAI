@@ -13,6 +13,9 @@ Game::Game() {
 	hits_max = 0;
 	hit_start = 0;
 	hits_total = 0;
+
+	board[2][0] = current_couple.get_puyos()[0];
+	board[2][1] = current_couple.get_puyos()[1];
 }
 
 
@@ -182,7 +185,7 @@ void Game::check(int x, int y, int p) {
 
 // GAME OVER ?
 bool Game::is_game_over() {
-	if (board[0][2] != FREE) return true;
+	if (board[2][0] != FREE) return true;
 	return false;
 }
 
@@ -215,6 +218,9 @@ bool Game::is_current_couple_fallen() {
 void Game::next() {
 	current_couple = next_couple;
 	next_couple = Couple();
+
+	board[2][0] = current_couple.get_puyos()[0];
+	board[2][1] = current_couple.get_puyos()[1];
 }
 
 // Descend le couple d'un cran

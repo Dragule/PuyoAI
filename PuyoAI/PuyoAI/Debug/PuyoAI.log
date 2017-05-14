@@ -1,3 +1,14 @@
-﻿  Game.cpp
+﻿  Control.cpp
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(78): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(94): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(95): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(96): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(97): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(98): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(99): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(100): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(101): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(102): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
+d:\workspace\visual studio\best6puyo6ever\puyoai\puyoai\control.cpp(103): warning C4244: '+=' : conversion de 'double' en 'int', perte possible de données
   PuyoAI.vcxproj -> D:\Workspace\Visual Studio\BEST6PUYO6EVER\PuyoAI\Debug\PuyoAI.exe
   PuyoAI.vcxproj -> D:\Workspace\Visual Studio\BEST6PUYO6EVER\PuyoAI\Debug\PuyoAI.pdb (Partial PDB)
